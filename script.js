@@ -10,9 +10,10 @@ function classeAleatoria() {
   const classeInclinacao = Math.floor(Math.random() * grupoInclinacao.length);
 
   for (let i = 0; i < cartaMisteriosa.length; i += 1) {
-    cartaMisteriosa[i].className = `
-    ${grupoEstilo[classeEstilo]} ${grupoTamanho[classeTamanho]} 
-    ${grupoRotacao[classeRotacao]} ${grupoInclinacao[classeInclinacao]}`;
+    cartaMisteriosa[i].classList.toggle(grupoEstilo[classeEstilo]);
+    cartaMisteriosa[i].classList.toggle(grupoTamanho[classeTamanho]);
+    cartaMisteriosa[i].classList.toggle(grupoRotacao[classeRotacao]);
+    cartaMisteriosa[i].classList.toggle(grupoInclinacao[classeInclinacao]);
   }
 }
 
