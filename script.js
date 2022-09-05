@@ -17,6 +17,24 @@ function classeAleatoria() {
   }
 }
 
+function palavraEspecifica(event) {
+  const eventTarget = event.target;
+  const grupoEstilo = ['newspaper', 'magazine1', 'magazine2'];
+  const grupoTamanho = ['medium', 'big', 'reallybig'];
+  const grupoRotacao = ['rotateleft', 'rotateright'];
+  const grupoInclinacao = ['skewleft', 'skewright'];
+  const classeEstilo = Math.floor(Math.random() * grupoEstilo.length);
+  const classeTamanho = Math.floor(Math.random() * grupoTamanho.length);
+  const classeRotacao = Math.floor(Math.random() * grupoRotacao.length);
+  const classeInclinacao = Math.floor(Math.random() * grupoInclinacao.length);
+
+  eventTarget.className = '';
+  eventTarget.classList.toggle(grupoEstilo[classeEstilo]);
+  eventTarget.classList.toggle(grupoTamanho[classeTamanho]);
+  eventTarget.classList.toggle(grupoRotacao[classeRotacao]);
+  eventTarget.classList.toggle(grupoInclinacao[classeInclinacao]);
+}
+
 function gerarCarta() {
   const cartaTexto = document.getElementById('carta-texto');
   const cartaGerada = document.getElementById('carta-gerada');
@@ -33,3 +51,6 @@ function gerarCarta() {
 }
 
 document.getElementById('criar-carta').addEventListener('click', gerarCarta);
+document
+  .getElementById('carta-gerada')
+  .addEventListener('click', palavraEspecifica);
